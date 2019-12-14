@@ -3,6 +3,7 @@ package org.example.util;
 import org.example.model.Box;
 import org.example.model.Package;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.ToIntFunction;
@@ -35,6 +36,6 @@ public class Utils {
     public static Optional<Box> selectLeastSuitableBox(Package parcel, List<Box> boxes) {
         return boxes.stream()
                 .filter(box -> isPackageFitInBox(parcel, box))
-                .min((o1, o2) -> calculateBoxInternalVolume.applyAsInt(o2) - calculateBoxInternalVolume.applyAsInt(o1));
+                .min(Comparator.comparingInt(calculateBoxInternalVolume::applyAsInt));
     }
 }
