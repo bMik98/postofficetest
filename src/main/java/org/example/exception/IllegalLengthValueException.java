@@ -2,7 +2,9 @@ package org.example.exception;
 
 public class IllegalLengthValueException extends IllegalArgumentException {
 
-    public IllegalLengthValueException(int value, int minAllowedValue) {
-        super("Illegal heightIllegalHeightValueException value: " + value + ". It must be greater than: " + minAllowedValue);
+    public IllegalLengthValueException(int value, int minAllowed, int maxAllowed) {
+        super("Illegal length value: " + value
+                + ". It must not be greater than: " + maxAllowed
+                + " and not less than: " + minAllowed);
     }
 }
